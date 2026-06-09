@@ -1044,7 +1044,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="sub-btn" id="submitBtn" onclick="doOrder()">Đặt sách & tạo mã QR thanh toán</button>
 
       <div class="form-microcopy">
-        Ebook được gửi qua email sau khi thanh toán thành công. Sách in giao theo địa chỉ bạn để lại.<br>
+        Ebook được gửi qua email sau khi thanh toán thành công. Sách in giao theo địa chỉ bạn yêu cầu.<br>
         Chuyển đúng nội dung hiển thị trên QR để đơn được xác nhận tự động.<br>
         Cần hỗ trợ — <a href="https://zalo.me/g/vcrcrg823" target="_blank">vào nhóm Zalo hỗ trợ kiểm tra đơn →</a>
       </div>
@@ -1380,7 +1380,7 @@ async function doOrder() {
   } catch (err) {
     alert('❌ Không kết nối được server. Vui lòng kiểm tra mạng và thử lại.');
   } finally {
-    btn.disabled = false; btn.textContent = 'Đặt sách & tạo mã QR thanh toán';
+    btn.disabled = false; btn.textContent = 'Xác nhận đặt sách';
   }
 }
 
