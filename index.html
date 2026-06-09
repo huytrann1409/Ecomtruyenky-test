@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ecom Truyền Kỳ — Lê Anh Tuấn</title>
-<meta name="description" content="25 năm Ecom Việt Nam được kể lại qua góc nhìn của người trong cuộc. Không phải giáo trình, không phải khóa học — đây là cách nhìn đủ rộng để hiểu vì sao cuộc chơi thay đổi.">
+<title>Ecom Truyền Kỳ — Sách cho người làm Ecom muốn nhìn toàn cảnh cuộc chơi</title>
+<meta name="description" content="Ecom Truyền Kỳ giúp người làm Ecom nhìn toàn cảnh cuộc chơi: nền tảng, quảng cáo, dòng tiền, vận hành, thương hiệu và AI — để biết mình đang ở đâu và chuẩn bị gì cho giai đoạn tới.">
 <meta property="og:title" content="Ecom Truyền Kỳ — Lê Anh Tuấn">
-<meta property="og:description" content="25 năm Ecom Việt Nam được kể lại qua góc nhìn của người trong cuộc. Không phải giáo trình, không phải khóa học — đây là cách nhìn đủ rộng để hiểu vì sao cuộc chơi thay đổi.">
+<meta property="og:description" content="Ecom Truyền Kỳ giúp người làm Ecom nhìn toàn cảnh cuộc chơi: nền tảng, quảng cáo, dòng tiền, vận hành, thương hiệu và AI — để biết mình đang ở đâu và chuẩn bị gì cho giai đoạn tới.">
 <meta property="og:image" content="https://ecomtruyenky.com/og-cover.jpg">
 <meta property="og:url" content="https://ecomtruyenky.com">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="vi_VN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ecom Truyền Kỳ — Lê Anh Tuấn">
-<meta name="twitter:description" content="25 năm Ecom Việt Nam được kể lại qua góc nhìn của người trong cuộc.">
+<meta name="twitter:description" content="Ecom Truyền Kỳ giúp người làm Ecom nhìn toàn cảnh cuộc chơi.">
 <meta name="twitter:image" content="https://ecomtruyenky.com/og-cover.jpg">
 <link rel="icon" type="image/png" href="https://ecomtruyenky.com/favicon.png">
 
@@ -395,6 +395,44 @@ footer{background:var(--brown);padding:36px 48px;text-align:center}
 .flinks a{font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
 .flinks a:hover{color:var(--gold)}
 .fcopy{font-size:12px;color:rgba(255,255,255,.22)}
+
+
+/* === Latest feedback overrides: real book, cleaner hero/bridge === */
+.real-book-scene{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:520px;
+  background:radial-gradient(circle at 50% 45%, rgba(255,139,60,.20), transparent 62%);
+}
+.real-book-img{
+  width:min(520px, 92%);
+  max-height:620px;
+  object-fit:contain;
+  filter:drop-shadow(0 34px 42px rgba(44,26,14,.20));
+  transform:rotate(-2deg);
+}
+.bridge{
+  padding:56px 32px;
+}
+.bridge-inner{
+  max-width:760px;
+}
+.bridge-inner p{
+  font-size:clamp(18px,2vw,25px);
+  line-height:1.75;
+}
+button.btn-pri{
+  border:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+@media(max-width:900px){
+  .real-book-scene{min-height:auto;margin-top:32px;}
+  .real-book-img{width:min(430px, 100%);transform:none;}
+  .bridge{padding:42px 24px;}
+}
+
 </style>
 </head>
 <body>
@@ -436,7 +474,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="bot-text">Combo Ebook + Sách in chỉ <strong>420.000đ</strong></div>
   <div class="bot-actions">
     <a href="https://zalo.me/g/vcrcrg823" target="_blank" class="bot-support">Hỗ trợ Zalo</a>
-    <a href="#pricing" class="bot-buy">Chọn bản phù hợp →</a>
+    <a href="#pricing" class="bot-buy">Đặt sách →</a>
   </div>
 </div>
 
@@ -458,8 +496,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
       <div class="hero-btns">
-        <a href="#pricing" class="btn-pri">Chọn bản phù hợp →</a>
-        <a href="#preview" class="btn-sec">Đọc thử 30 trang Chương 3</a>
+        <a href="#pricing" class="btn-pri">Đặt sách →</a>
+        <a href="#preview" class="btn-sec">Đọc thử 30 trang</a>
       </div>
       <div class="hero-stats">
         <div><div class="hstat-n">300+</div><div class="hstat-l">Trang sách</div></div>
@@ -505,22 +543,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-static">
-    <div class="proof-item"><span class="pdot"></span><span class="pname">Nguyễn Xuân Đông</span><span class="prole">&nbsp;— Co-founder Ecomobi, Moore</span></div>
-    <div class="proof-item"><span class="pdot"></span><span class="pname">Nguyễn Mạnh Tân</span><span class="prole">&nbsp;— COO Happyskin</span></div>
-    <div class="proof-item"><span class="pdot"></span><span class="pname">Đỗ Hữu Hưng</span><span class="prole">&nbsp;— TGĐ ACCESSTRADE VN</span></div>
-    <div class="proof-item"><span class="pdot"></span><span class="pname">Nguyễn Phương Nam</span><span class="prole">&nbsp;— CEO Aothun.vn</span></div>
-  </div>
 </div>
 
 <!-- BRIDGE 1 -->
 <div class="bridge" id="bridge1">
   <div class="bridge-inner fade-in">
     <p>Không phải vì người bán lười hơn, hay thị trường hết cơ hội.</p>
-    <p>Vấn đề là sàn một phần, ads một phần, vận hành một phần — và nhiều người không biết mình thật sự còn lại bao nhiêu.</p>
-    <p><strong>Nhìn doanh thu thôi không còn đủ.</strong></p>
+    <p>Vấn đề là cuộc chơi đã có quá nhiều mảnh ghép: nền tảng, quảng cáo, dòng tiền, vận hành, thương hiệu và AI.</p>
+    <p><strong>Muốn đi tiếp, chỉ nhìn doanh thu là không đủ.</strong></p>
   </div>
 </div>
 
@@ -561,9 +591,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BRIDGE 2 -->
 <div class="bridge" id="bridge2">
   <div class="bridge-inner fade-in">
-    <p>Biết thị trường đang khó hơn là chưa đủ.</p>
-    <p>Câu hỏi thật là: vì sao nó thành ra như vậy — và sau mỗi lần đổi luật, ai còn lãi thật, ai bắt đầu hụt hơi?</p>
-    <p><strong>25 năm Ecom Việt Nam cho mình một cách nhìn rõ hơn: người thật, việc thật, tiền thật.</strong></p>
+    <p>Biết thị trường khó hơn là chưa đủ.</p>
+    <p>Cái cần là nhìn rõ mình đang mắc ở đâu: sản phẩm, kênh bán, chi phí, vận hành hay cách ra quyết định.</p>
+    <p><strong>Ecom Truyền Kỳ giúp bạn nhìn lại cuộc chơi bằng một góc nhìn rộng hơn: người thật, việc thật, tiền thật.</strong></p>
   </div>
 </div>
 
@@ -573,12 +603,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="fade-in">
       <span class="sec-label">Nội Dung Sách</span>
       <h2 class="big-title">Ecom Truyền Kỳ<br><em>— Lê Anh Tuấn</em></h2>
-      <div class="book-meta">
-        <span class="bmeta-tag">📖 300+ trang</span>
-        <span class="bmeta-tag">🗓 25 năm Ecom Việt Nam</span>
-        <span class="bmeta-tag">🏛 NXB Hà Nội · 2026</span>
-      </div>
-      <p class="sec-sub">25 năm Ecom Việt Nam được kể lại qua góc nhìn của người trong cuộc.<br><br>Không phải giáo trình. Không phải khóa học. Đây là cách nhìn có hệ thống về một cuộc chơi thay đổi liên tục — nơi kỹ thuật có thể lỗi thời rất nhanh, nhưng pattern thì thường lặp lại.</p>
+      <p class="sec-sub">Ecom Truyền Kỳ giúp người làm Ecom nhìn toàn cảnh cuộc chơi.<br><br>Không phải giáo trình. Không phải khóa học. Đây là cách nhìn có hệ thống về một cuộc chơi thay đổi liên tục — nơi kỹ thuật có thể lỗi thời rất nhanh, nhưng pattern thì thường lặp lại.</p>
     </div>
     <div class="book-layout fade-in">
       <div>
@@ -610,8 +635,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="book-btns">
-          <a href="#preview" class="btn-sec">Đọc thử 30 trang Chương 3</a>
-          <a href="#pricing" class="btn-pri">Chọn bản phù hợp →</a>
+          <a href="#preview" class="btn-sec">Đọc thử 30 trang</a>
+          <a href="#pricing" class="btn-pri">Đặt sách →</a>
         </div>
       </div>
       <div class="toc-full">
@@ -632,9 +657,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BRIDGE 3 -->
 <div class="bridge" id="bridge3" style="background:linear-gradient(160deg,#FFF3E6,#FFE4C8)">
   <div class="bridge-inner fade-in">
-    <p>Chương 1–2 cho bạn hiểu cuộc chơi được hình thành như thế nào — từ những ngày sơ khai đến lúc nền tảng, mobile, logistics và affiliate bắt đầu định hình cách bán hàng.</p>
-    <p>Chương 3–4 kéo câu chuyện về hiện tại và bước tiếp theo.</p>
-    <p><strong>Nếu bạn đang làm Ecom hôm nay — đây là phần nói thẳng vào giai đoạn bạn đang đứng.</strong></p>
+    <p>Nếu bạn đang làm Ecom hôm nay, phần đáng đọc nhất không chỉ là chuyện ngành đã đi qua gì.</p>
+    <p><strong>Mà là những bài học còn dùng được cho quyết định tiếp theo.</strong></p>
   </div>
 </div>
 
@@ -643,23 +667,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="fade-in">
       <span class="sec-label">Chương 3 &amp; 4</span>
-      <h2 class="big-title">Phần nói về lãi,<br>hệ thống và<br>bước tiếp theo.</h2>
+      <h2 class="big-title">Sau doanh thu là dòng tiền,<br>vận hành và<br>bước tiếp theo.</h2>
     </div>
     <div class="spotlight-grid fade-in">
       <div class="spotlight-card">
-        <div class="spotlight-ch">Chương 3 — 2014–2025: Kỷ Nguyên Vươn Mình</div>
-        <h3 class="spotlight-title">Không chỉ là chuyện ai đã thành công.</h3>
-        <p class="spotlight-body">Đây là phần đi vào câu hỏi khó hơn: vì sao có đơn mà chưa chắc có lãi, vì sao scale được một thời gian rồi hụt hơi, và vì sao làm đúng kỹ thuật vẫn chưa đủ khi cuộc chơi đổi luật.<br><br>Chương này đi qua vận hành, đội ngũ, tài chính, gọi vốn, M&amp;A và AI — những lớp phía sau doanh thu mà người làm Ecom càng đi xa càng phải đối mặt.</p>
+        <div class="spotlight-ch">Chương 3 — Kỷ Nguyên Vươn Mình</div>
+        <h3 class="spotlight-title">Doanh thu không phải là tất cả.</h3>
+        <p class="spotlight-body">Có đơn, có doanh thu chưa chắc đã còn tiền. Chương này đi vào những bài toán thực tế hơn của người làm Ecom: chi phí, dòng tiền, vận hành, đội ngũ, gọi vốn, M&amp;A và AI.</p>
       </div>
       <div class="spotlight-card">
         <div class="spotlight-ch">Chương 4 — Vươn Ra Thế Giới</div>
         <h3 class="spotlight-title">Khi thị trường trong nước không còn là giới hạn duy nhất.</h3>
-        <p class="spotlight-body">Ecom Global, POD, dropship, cross-border và thị trường Đông Nam Á — không phải để chạy theo trend, mà để thấy cánh cửa tiếp theo của người làm Ecom Việt đang ở đâu.</p>
+        <p class="spotlight-body">Ecom Global, POD, dropship, cross-border và thị trường Đông Nam Á — không phải để chạy theo trend, mà để thấy những cánh cửa tiếp theo của người làm Ecom Việt.</p>
       </div>
     </div>
     <div class="spotlight-btns fade-in">
-      <a href="#preview" class="btn-sec">Đọc thử 30 trang Chương 3</a>
-      <a href="#pricing" class="btn-pri">Chọn bản phù hợp →</a>
+      <a href="#preview" class="btn-sec">Đọc thử 30 trang</a>
+      <a href="#pricing" class="btn-pri">Đặt sách →</a>
     </div>
   </div>
 </section>
@@ -669,8 +693,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="fade-in" style="text-align:center">
       <span class="sec-label" style="display:block;text-align:center">Đọc Thử</span>
-      <h2 class="big-title" style="font-size:clamp(32px,4.5vw,56px)">Đọc thử 30 trang Chương 3</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Bắt đầu từ phần "Bán hàng trên sàn Ecom còn có lãi không?" — đoạn nói thẳng vào lãi thật, vận hành, dòng tiền, quản trị và cost structure.</p>
+      <h2 class="big-title" style="font-size:clamp(32px,4.5vw,56px)">Đọc thử 30 trang</h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Bắt đầu từ phần “Bán hàng trên sàn Ecom còn có lãi không?” — đoạn đi thẳng vào câu hỏi quen thuộc của người làm Ecom: bán được rồi, nhưng cuối cùng còn lại bao nhiêu?</p>
     </div>
     <div class="preview-thumbnails fade-in" id="previewThumbs">
       <!-- 3 thumbnails rendered by JS -->
@@ -685,8 +709,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BRIDGE 4 -->
 <div class="bridge" id="bridge4">
   <div class="bridge-inner fade-in">
-    <p>Một cuốn sách viết về Ecom Việt Nam không chỉ cần nói nghe có lý.</p>
-    <p>Nó cần chạm được vào trải nghiệm của những người đã thật sự đi qua cuộc chơi này.</p>
+    <p>Một cuốn sách viết về Ecom không chỉ cần nghe có lý.</p>
+    <p>Nó cần chạm được vào trải nghiệm của những người thật sự đã đi qua cuộc chơi này.</p>
   </div>
 </div>
 
@@ -726,7 +750,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BRIDGE 5 -->
 <div class="bridge" id="bridge5" style="background:linear-gradient(160deg,#FFF3E6,#FFE4C8)">
   <div class="bridge-inner fade-in">
-    <p>Nếu những nhận xét trên làm bạn thấy cuốn sách này đang nói đúng một phần cuộc chơi mình từng thấy — hãy chọn bản phù hợp bên dưới.</p>
+    <p>Nếu những nhận xét trên làm bạn thấy cuốn sách đang nói đúng một phần cuộc chơi mình từng thấy, hãy chọn loại sách phù hợp bên dưới.</p>
     <p>Không phải để có thêm một mẹo mới, mà để nhìn rõ hơn trước quyết định tiếp theo.</p>
   </div>
 </div>
@@ -735,51 +759,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="price-sec" id="pricing">
   <div class="container">
     <div class="fade-in" style="text-align:center">
-      <span class="sec-label" style="display:block;text-align:center">Chọn Bản</span>
-      <h2 class="big-title" style="font-size:clamp(32px,4vw,52px)">Chọn bản phù hợp với cách bạn muốn đọc</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Đọc ngay bằng Ebook, giữ sách in để đọc chậm, hoặc chọn Combo nếu bạn muốn có cả hai.</p>
+      <span class="sec-label" style="display:block;text-align:center">Chọn Loại Sách</span>
+      <h2 class="big-title" style="font-size:clamp(32px,4vw,52px)">Đặt sách với cách bạn muốn đọc</h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Đọc ngay bằng Ebook, chọn sách in để đọc chậm và ghi chú, hoặc chọn Combo nếu bạn muốn có cả hai.</p>
     </div>
     <div class="price-grid fade-in">
       <div class="price-card">
         <span class="price-type">Ebook</span>
         <span class="price-ico">📱</span>
         <div class="price-amt"><span>₫</span>199.000</div>
-        <p class="price-desc">Phù hợp nếu muốn đọc ngay, không chờ giao hàng.<br>Nhận link ebook qua email sau thanh toán.</p>
+        <p class="price-desc">Phù hợp nếu bạn muốn đọc ngay sau khi thanh toán.<br>Nhận link Ebook qua email.</p>
         <ul class="price-feats">
           <li>File PDF 300+ trang</li>
           <li>Đọc trên mọi thiết bị</li>
           <li>Nhận ngay qua email</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('ebook')">Chọn Ebook</button>
+        <button class="pbtn out" onclick="selectProduct('ebook')">Đặt sách</button>
       </div>
       <div class="price-card feat">
         <span class="price-type">Combo</span>
         <span class="price-ico">📚</span>
         <div class="price-amt"><span>₫</span>420.000</div>
         <div class="price-save">Tiết kiệm 128.000đ so với mua lẻ</div>
-        <p class="price-desc">Đọc ngay bằng ebook, giữ sách in để đọc lại lâu dài.</p>
+        <p class="price-desc">Phù hợp nếu bạn muốn nhận Ebook ngay và vẫn có sách in để đọc lâu dài.</p>
         <ul class="price-feats">
           <li>Sách in + File PDF</li>
           <li>Đọc ngay &amp; giữ lâu dài</li>
           <li>Giao hàng toàn quốc</li>
         </ul>
-        <button class="pbtn main" onclick="selectProduct('combo')">Chọn Combo →</button>
+        <button class="pbtn main" onclick="selectProduct('combo')">Đặt sách</button>
       </div>
       <div class="price-card">
         <span class="price-type">Sách In</span>
         <span class="price-ico">📖</span>
         <div class="price-amt"><span>₫</span>349.000</div>
-        <p class="price-desc">Phù hợp nếu thích đọc chậm, ghi chú, để trên bàn làm việc hoặc tặng team.<br>Giao theo địa chỉ bạn để lại trong form.</p>
+        <p class="price-desc">Phù hợp nếu bạn thích đọc sách giấy, đọc chậm và ghi chú.<br>Giao theo địa chỉ bạn để lại trong form.</p>
         <ul class="price-feats">
           <li>Sách in 300+ trang</li>
           <li>Giao hàng toàn quốc</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('sach')">Chọn Sách In</button>
+        <button class="pbtn out" onclick="selectProduct('sach')">Đặt sách</button>
       </div>
     </div>
     <div class="price-microcopy fade-in">
       Có mã ưu đãi? Nhập ở bước thanh toán.<br>
-      Muốn xem nội dung trước? <a href="#preview" onclick="openPreview();return false;">Bạn có thể đọc thử 30 trang Chương 3.</a>
+      Muốn xem nội dung trước? <a href="#preview" onclick="openPreview();return false;">Bạn có thể đọc thử 30 trang.</a>
     </div>
   </div>
 </section>
@@ -787,7 +811,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BRIDGE 6 -->
 <div class="bridge" id="bridge6">
   <div class="bridge-inner fade-in">
-    <p>Chọn bản phù hợp rồi, điền thông tin bên dưới để tạo đơn.</p>
+    <p>Chọn loại sách phù hợp rồi, điền thông tin bên dưới để tạo đơn.</p>
     <p><strong>Hệ thống sẽ hiển thị mã QR thanh toán sau khi bạn gửi form.</strong></p>
   </div>
 </div>
@@ -798,7 +822,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="fade-in" style="text-align:center">
       <span class="sec-label" style="display:block;text-align:center">Đặt Sách</span>
       <h2 class="big-title" style="font-size:clamp(28px,3.5vw,44px)">Đặt sách Ecom Truyền Kỳ</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Điền thông tin nhận sách và chọn phiên bản bạn muốn mua. Sau khi gửi form, hệ thống sẽ hiển thị mã QR để bạn thanh toán.</p>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Điền thông tin nhận sách và chọn loại sách bạn muốn mua. Sau khi gửi form, hệ thống sẽ hiển thị mã QR để bạn thanh toán.</p>
     </div>
     <div class="order-inner fade-in">
 
@@ -817,10 +841,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="form-grid">
         <div class="fg"><label class="fl">Họ và tên *</label><input class="fi" id="f-name" type="text" placeholder="Nguyễn Văn A"></div>
         <div class="fg"><label class="fl">Số điện thoại *</label><input class="fi" id="f-phone" type="tel" placeholder="0912 345 678"></div>
-        <div class="fg full"><label class="fl">Email (Bắt buộc)</label><input class="fi" id="f-email" type="email" placeholder="email@example.com"></div>
+        <div class="fg full"><label class="fl">Email *</label><input class="fi" id="f-email" type="email" placeholder="email@example.com"></div>
 
         <div class="fg full">
-          <label class="fl">Chọn phiên bản *</label>
+          <label class="fl">Chọn loại sách *</label>
           <div class="radio-group" id="radioGroup">
             <label class="radio-opt" id="opt-ebook">
               <input type="radio" name="product" value="ebook" onchange="onRadioChange(this)">
@@ -838,7 +862,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="radio-opt-price">420.000đ</span>
             </label>
           </div>
-          <div id="radioErr" style="display:none;font-size:12px;color:#dc2626;margin-top:5px">Vui lòng chọn phiên bản.</div>
+          <div id="radioErr" style="display:none;font-size:12px;color:#dc2626;margin-top:5px">Vui lòng chọn loại sách.</div>
         </div>
 
         <div class="fg full fg-address" id="addressGroup" style="display:none">
@@ -883,7 +907,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <button class="sub-btn" id="submitBtn" onclick="doOrder()">Tạo đơn và hiển thị QR thanh toán</button>
+      <button class="sub-btn" id="submitBtn" onclick="doOrder()">Đặt sách & tạo mã QR thanh toán</button>
 
       <div class="form-microcopy">
         Ebook được gửi qua email sau khi thanh toán thành công. Sách in giao theo địa chỉ bạn để lại.<br>
@@ -955,7 +979,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- PREVIEW MODAL -->
 <div class="preview-overlay hidden" id="previewOverlay">
   <div class="preview-header">
-    <div class="preview-header-title">📖 Đọc thử 30 trang Chương 3</div>
+    <div class="preview-header-title">📖 Đọc thử 30 trang</div>
     <button class="preview-close-btn" onclick="closePreview()">✕ Đóng</button>
   </div>
   <div class="preview-scroll" id="previewScroll">
@@ -971,7 +995,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="https://zalo.me/g/vcrcrg823" target="_blank">Nhóm Zalo Hỗ Trợ</a>
     <a href="mailto:tuan.le@firstcom.vn">tuan.le@firstcom.vn</a>
   </div>
-  <div class="fcopy">© 2026 Lê Anh Tuấn · Ecom Truyền Kỳ · NXB Hà Nội</div>
+  <div class="fcopy">© 2026 Lê Anh Tuấn · Ecom Truyền Kỳ</div>
 </footer>
 
 <script>
@@ -1010,7 +1034,7 @@ async function applyCoupon() {
   const btn      = document.getElementById('btnApplyCoupon');
 
   if (!code) { resultEl.textContent = 'Vui lòng nhập mã giảm giá.'; resultEl.className = 'coupon-result fail'; return; }
-  if (!product) { resultEl.textContent = 'Vui lòng chọn phiên bản trước khi áp dụng mã.'; resultEl.className = 'coupon-result fail'; return; }
+  if (!product) { resultEl.textContent = 'Vui lòng chọn loại sách trước khi áp dụng mã.'; resultEl.className = 'coupon-result fail'; return; }
 
   btn.disabled = true; btn.textContent = '...';
   resultEl.textContent = ''; resultEl.className = 'coupon-result';
@@ -1222,7 +1246,7 @@ async function doOrder() {
   } catch (err) {
     alert('❌ Không kết nối được server. Vui lòng kiểm tra mạng và thử lại.');
   } finally {
-    btn.disabled = false; btn.textContent = 'Tạo đơn và hiển thị QR thanh toán';
+    btn.disabled = false; btn.textContent = 'Đặt sách & tạo mã QR thanh toán';
   }
 }
 
@@ -1341,9 +1365,9 @@ function buildPreviewPages() {
   const endCta = document.createElement('div');
   endCta.className = 'preview-end-cta';
   endCta.innerHTML = `
-    <h3>Muốn đọc tiếp toàn bộ Chương 3?</h3>
-    <p>Ecom Truyền Kỳ — hơn 300 trang về 25 năm Ecom Việt Nam, bài học, pattern và tư duy thực chiến.</p>
-    <a href="#pricing" class="preview-end-btn" onclick="closePreview()">Chọn bản phù hợp tại ecomtruyenky.com →</a>
+    <h3>Muốn đọc tiếp toàn bộ cuốn sách?</h3>
+    <p>Ecom Truyền Kỳ giúp bạn nhìn toàn cảnh cuộc chơi Ecom — để biết mình đang ở đâu, nên ưu tiên điều gì và chuẩn bị thế nào cho giai đoạn tới.</p>
+    <a href="#pricing" class="preview-end-btn" onclick="closePreview()">Đặt sách tại ecomtruyenky.com →</a>
   `;
   scroll.appendChild(endCta);
 
