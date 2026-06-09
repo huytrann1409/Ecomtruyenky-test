@@ -1302,6 +1302,45 @@ function doCloseQR() {
 
 // ── Preview reader ────────────────────────────────────────
 let previewBuilt = false;
+const PREVIEW_CACHE_BUST = 'v6-20260609';
+
+function previewCandidates(pad) {
+  return [
+    `./page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`,
+    `page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`,
+    `./preview-pages/page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`,
+    `preview-pages/page-${pad}.webp?v=${PREVIEW_CACHE_BUST}`
+  ];
+}
+
+function loadPreviewImageInto(wrap, pad) {
+  const pageNum = parseInt(pad, 10);
+  const candidates = previewCandidates(pad);
+  let idx = 0;
+  const img = new Image();
+  img.style.cssText = 'width:100%;display:block';
+  img.alt = `Trang ${pageNum} đọc thử`;
+  img.loading = 'lazy';
+
+  img.onload = () => {
+    wrap.innerHTML = '';
+    wrap.appendChild(img);
+  };
+
+  img.onerror = () => {
+    idx += 1;
+    if (idx < candidates.length) {
+      img.src = candidates[idx];
+      return;
+    }
+    const ph = wrap.querySelector('.preview-page-placeholder');
+    if (ph) {
+      ph.innerHTML = `Không tải được trang ${pageNum}.<br>Kiểm tra file <b>page-${pad}.webp</b> ở cùng cấp với index.html hoặc trong thư mục <b>preview-pages</b>.`;
+    }
+  };
+
+  img.src = candidates[0];
+}
 
 function buildPreviewPages() {
   if (previewBuilt) return;
@@ -1317,7 +1356,6 @@ function buildPreviewPages() {
     wrap.className = 'preview-page-wrap';
     wrap.dataset.page = pad;
 
-    // placeholder initially
     const placeholder = document.createElement('div');
     placeholder.className = 'preview-page-placeholder';
     placeholder.textContent = 'Đang tải trang ' + i + '...';
@@ -1335,7 +1373,7 @@ function buildPreviewPages() {
   `;
   scroll.appendChild(endCta);
 
-  // Lazy-load with IntersectionObserver
+  // Lazy-load with IntersectionObserver. Fallback supports BOTH root files and /preview-pages folder.
   const pageObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1343,12 +1381,7 @@ function buildPreviewPages() {
         const pad = wrap.dataset.page;
         if (pad && !wrap.dataset.loaded) {
           wrap.dataset.loaded = '1';
-          const img = new Image();
-          img.onload = () => { wrap.innerHTML = ''; wrap.appendChild(img); };
-          img.onerror = () => { wrap.querySelector('.preview-page-placeholder') && (wrap.querySelector('.preview-page-placeholder').textContent = 'Không tải được trang ' + parseInt(pad) + '.'); };
-          img.src = `page-${pad}.webp`;
-          img.style.cssText = 'width:100%;display:block';
-          img.alt = `Trang ${parseInt(pad)}`;
+          loadPreviewImageInto(wrap, pad);
           pageObs.unobserve(wrap);
         }
       }
@@ -1380,10 +1413,17 @@ function closePreview() {
     wrap.className = 'thumb-wrap';
     wrap.onclick = openPreview;
     const img = document.createElement('img');
-    img.src = `page-${pad}.webp`;
     img.alt = `Trang ${i} đọc thử`;
     img.loading = 'lazy';
     img.style.cssText = 'width:100%;display:block';
+    const candidates = previewCandidates(pad);
+    let idx = 0;
+    img.onerror = () => {
+      idx += 1;
+      if (idx < candidates.length) img.src = candidates[idx];
+      else wrap.style.display = 'none';
+    };
+    img.src = candidates[0];
     wrap.appendChild(img);
     container.appendChild(wrap);
   }
