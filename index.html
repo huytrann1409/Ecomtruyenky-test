@@ -541,20 +541,46 @@ button.btn-pri{
 .stat-desc{color:var(--muted)}
 .stats-footnote{color:var(--muted)}
 /* === EVENT PROOF SECTION === */
-.event-proof-sec{background:#FFF8F0;padding:80px 48px}
-.event-proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1020px;margin:0 auto}
-.event-proof-card{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(44,26,14,.07)}
-.event-proof-card img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
-.event-proof-caption{font-size:13px;color:var(--muted);padding:12px 16px;margin:0;line-height:1.5}
-@media(max-width:640px){
-  .event-proof-sec{padding:64px 0}
-  .event-proof-grid{display:flex;flex-direction:row;overflow-x:auto;gap:16px;padding:0 24px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .event-proof-card{flex:0 0 80vw;max-width:300px;scroll-snap-align:start}
+.event-proof-sec{background:#FFF8F0;padding:88px 48px}
+.event-proof-head{max-width:760px;margin:0 auto 36px;text-align:center}
+.event-proof-title{font-size:clamp(28px,4vw,48px);line-height:1.12;letter-spacing:-1px;font-weight:900;color:var(--brown);margin-bottom:14px}
+.event-proof-head p{font-size:15px;color:var(--muted);line-height:1.8}
+.event-proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.event-proof-card{margin:0;border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--border);box-shadow:0 16px 36px rgba(44,26,14,.08)}
+.event-proof-card img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center center;display:block}
+.event-proof-card figcaption{padding:12px 14px 14px;font-size:12.5px;color:var(--muted);line-height:1.5}
+@media(max-width:700px){
+  .event-proof-sec{padding:72px 24px}
+  .event-proof-grid{display:flex;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;padding:2px 2px 10px;margin-left:-4px;margin-right:-4px}
+  .event-proof-card{min-width:82vw;scroll-snap-align:center}
+  .event-proof-card img{aspect-ratio:4/3}
 }
 /* === REAL BOOK PROOF (Pricing) === */
-.real-book-proof{max-width:760px;margin:40px auto;border-radius:20px;overflow:hidden;box-shadow:0 12px 32px rgba(44,26,14,.08);border:1.5px solid var(--border)}
-.real-book-proof img{width:100%;display:block;object-fit:cover;max-height:420px}
-.real-book-proof-copy{font-size:14px;color:var(--brown2);line-height:1.8;padding:20px 24px;margin:0;background:#fff}
+.real-book-proof{max-width:900px;margin:34px auto 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:center;padding:18px;border-radius:24px;background:#FFF8F0;border:1px solid var(--border);box-shadow:0 14px 36px rgba(44,26,14,.06)}
+.real-book-proof-img img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block}
+.real-book-proof-copy span{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--or);display:block;margin-bottom:8px}
+.real-book-proof-copy h3{font-size:clamp(20px,2.6vw,30px);line-height:1.2;color:var(--brown);font-weight:900;margin-bottom:10px}
+.real-book-proof-copy p{font-size:14px;line-height:1.8;color:var(--brown2)}
+@media(max-width:700px){.real-book-proof{grid-template-columns:1fr}}
+/* === AUTHOR VIDEO FEATURE === */
+.author-video-feature{margin-top:34px;display:grid;grid-template-columns:minmax(220px,1fr) minmax(260px,340px) minmax(220px,1fr);gap:24px;align-items:center}
+.author-video-main{border-radius:18px;overflow:hidden;border:1.5px solid var(--border);box-shadow:0 18px 44px rgba(44,26,14,.10);aspect-ratio:9/16;background:#1A0800}
+.author-video-main iframe{width:100%;height:100%;display:block;border:none}
+.author-video-side{min-height:260px;padding:22px;border-radius:20px;background:#FFF8F0;border:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.video-kicker{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--or);margin-bottom:10px;display:block}
+.author-video-side h3{font-size:22px;line-height:1.25;color:var(--brown);font-weight:900;margin-bottom:12px}
+.author-video-side p{font-size:14px;line-height:1.8;color:var(--brown2)}
+.author-video-side ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 18px}
+.author-video-side li{font-size:13.5px;line-height:1.65;color:var(--brown2);padding-left:18px;position:relative}
+.author-video-side li::before{content:'→';position:absolute;left:0;color:var(--or);font-weight:800}
+.author-video-side a{font-size:13px;font-weight:800;color:var(--or);text-decoration:none}
+@media(max-width:900px){
+  .author-video-feature{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+  .author-video-main{order:1}
+  .author-video-left{order:2}
+  .author-video-right{order:3}
+  .author-video-side{min-height:auto}
+}
 
 /* === MODAL preview page wraps === */
 #previewScroll .preview-page-wrap{
@@ -972,17 +998,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:var(--brown);letter-spacing:-1px;line-height:1.1;margin-bottom:16px">Lê Anh Tuấn</h2>
         <p style="font-size:clamp(15px,1.7vw,18px);color:var(--brown2);line-height:1.85;margin-bottom:36px">Lê Anh Tuấn là người gắn bó lâu năm với online marketing, startup và Ecom Việt Nam. Ecom Truyền Kỳ là cách anh chọn để kể lại 25 năm đó — để người đi sau không phải trả học phí bằng tiền thật cho những bài học đã có sẵn.</p>
 
-        <!-- 9:16 video player — centered, max 340px -->
-        <div style="max-width:340px">
-          <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--border);box-shadow:0 12px 32px rgba(44,26,14,.08);aspect-ratio:9/16">
+        <!-- Author video feature — 3 column layout -->
+        <div class="author-video-feature">
+          <div class="author-video-side author-video-left">
+            <span class="video-kicker">Video tác giả</span>
+            <h3>Câu chuyện phía sau Ecom Truyền Kỳ</h3>
+            <p>Một cuốn sách không nên chỉ nói "nên làm gì". Nó nên giúp người làm Ecom hiểu vì sao cuộc chơi đã thay đổi — và mình đang đứng ở đâu trong đó.</p>
+          </div>
+          <div class="author-video-main">
             <iframe
               src="https://www.youtube-nocookie.com/embed/TfFeIF-frFE?rel=0&modestbranding=1&iv_load_policy=3"
-              style="width:100%;height:100%;display:block;border:none"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
               loading="lazy"
               title="Câu chuyện phía sau Ecom Truyền Kỳ — Lê Anh Tuấn"
             ></iframe>
+          </div>
+          <div class="author-video-side author-video-right">
+            <span class="video-kicker">Trong video này</span>
+            <ul>
+              <li>Vì sao tác giả viết Ecom Truyền Kỳ</li>
+              <li>Vì sao sách không đi theo kiểu công thức kiếm tiền nhanh</li>
+              <li>Người làm Ecom nên đọc cuốn này với tâm thế nào</li>
+            </ul>
+            <a href="#preview">Đọc thử 30 trang →</a>
           </div>
         </div>
       </div>
@@ -994,23 +1033,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- EVENT PROOF -->
 <section class="event-proof-sec" id="event-proof">
   <div class="container">
-    <div class="fade-in" style="text-align:center;margin-bottom:40px">
+    <div class="event-proof-head fade-in">
       <span class="sec-label" style="display:block;text-align:center">Khoảnh Khắc Thật</span>
-      <h2 style="font-size:clamp(24px,3vw,38px);font-weight:900;color:var(--brown);letter-spacing:-0.5px;line-height:1.2">Sách thật. Người thật.<br>Những cuộc trò chuyện thật.</h2>
+      <h2 class="event-proof-title">Sách thật. Người thật. Những cuộc trò chuyện thật.</h2>
+      <p>Một vài khoảnh khắc tại buổi ra mắt Ecom Truyền Kỳ — nơi cuốn sách được cầm trên tay, ký tặng và nói tiếp bằng những câu chuyện ngoài trang giấy.</p>
     </div>
     <div class="event-proof-grid fade-in">
-      <div class="event-proof-card">
-        <img src="assets/images/event-group-books.jpg" alt="Buổi ra mắt sách Ecom Truyền Kỳ" loading="lazy">
-        <p class="event-proof-caption">Buổi ra mắt sách Ecom Truyền Kỳ.</p>
-      </div>
-      <div class="event-proof-card">
-        <img src="assets/images/event-signed-books.jpg" alt="Ký tặng sách tại sự kiện" loading="lazy">
-        <p class="event-proof-caption">Ký tặng sách tại sự kiện.</p>
-      </div>
-      <div class="event-proof-card">
-        <img src="assets/images/event-reader-book.jpg" alt="Sách thật trên tay người đọc" loading="lazy">
-        <p class="event-proof-caption">Sách thật trên tay người đọc.</p>
-      </div>
+      <figure class="event-proof-card">
+        <img src="assets/images/event-group-books.jpg" alt="Độc giả cầm sách tại buổi ra mắt Ecom Truyền Kỳ" loading="lazy" decoding="async">
+        <figcaption>Buổi ra mắt sách Ecom Truyền Kỳ.</figcaption>
+      </figure>
+      <figure class="event-proof-card">
+        <img src="assets/images/event-signed-books.jpg" alt="Khoảnh khắc ký tặng sách Ecom Truyền Kỳ" loading="lazy" decoding="async">
+        <figcaption>Ký tặng sách tại sự kiện.</figcaption>
+      </figure>
+      <figure class="event-proof-card">
+        <img src="assets/images/event-reader-book.jpg" alt="Độc giả cầm sách Ecom Truyền Kỳ" loading="lazy" decoding="async">
+        <figcaption>Sách thật trên tay người đọc.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1096,8 +1136,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="sec-sub" style="margin:0 auto;text-align:center">Đọc ngay bằng Ebook, chọn sách in để đọc chậm và ghi chú, hoặc chọn Combo nếu bạn muốn có cả hai.</p>
     </div>
     <div class="real-book-proof fade-in">
-      <img src="assets/images/real-book-proof.jpg" alt="Sách Ecom Truyền Kỳ bản in thật" loading="lazy">
-      <p class="real-book-proof-copy">Sách in bản thật đã được hoàn thiện và dùng trong buổi ra mắt. Nếu bạn muốn đọc chậm, gạch ý và giữ lại trên bàn làm việc, bản sách in hoặc Combo sẽ hợp hơn Ebook đơn lẻ.</p>
+      <div class="real-book-proof-img">
+        <img src="assets/images/real-book-proof.jpg" alt="Sách in Ecom Truyền Kỳ bản thật" loading="lazy" decoding="async">
+      </div>
+      <div class="real-book-proof-copy">
+        <span>Sách in bản thật</span>
+        <h3>Cầm được, ghi chú được, đọc lại được.</h3>
+        <p>Sách in bản thật đã được hoàn thiện và dùng trong buổi ra mắt. Nếu bạn muốn đọc chậm, gạch ý và giữ lại trên bàn làm việc, bản sách in hoặc Combo sẽ hợp hơn Ebook đơn lẻ.</p>
+      </div>
     </div>
     <div class="price-grid fade-in">
       <div class="price-card">
