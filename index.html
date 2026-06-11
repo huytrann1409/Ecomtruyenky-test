@@ -540,6 +540,19 @@ button.btn-pri{
 .stat-title{color:var(--brown)}
 .stat-desc{color:var(--muted)}
 .stats-footnote{color:var(--muted)}
+/* === MODAL preview page wraps === */
+#previewScroll .preview-page-wrap{
+  display:block;
+  width:100%;
+  max-width:680px;
+  margin:0 auto 12px;
+}
+#previewScroll .preview-page-wrap img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
 /* === INLINE PREVIEW READER === */
 .preview-reader-wrap{max-width:760px;margin:40px auto 0}
 .preview-reader-container{position:relative}
@@ -1691,27 +1704,27 @@ function loadPreviewImageInto(wrap, pad) {
   const pageNum = parseInt(pad, 10);
   const candidates = previewCandidates(pad);
   let idx = 0;
-  const img = new Image();
-  img.style.cssText = 'width:100%;display:block';
-  img.alt = `Trang ${pageNum} đọc thử`;
+  const img = document.createElement('img');
+  img.style.cssText = 'width:100%;display:block;height:auto';
+  img.alt = 'Trang ' + pageNum + ' đọc thử';
 
-  img.onload = () => {
-    wrap.innerHTML = '';
-    wrap.appendChild(img);
+  img.onload = function() {
+    const ph = wrap.querySelector('.preview-page-placeholder');
+    if (ph) ph.remove();
   };
 
-  img.onerror = () => {
+  img.onerror = function() {
     idx += 1;
     if (idx < candidates.length) {
       img.src = candidates[idx];
       return;
     }
     const ph = wrap.querySelector('.preview-page-placeholder');
-    if (ph) {
-      ph.innerHTML = `Không tải được trang ${pageNum}.<br>Kiểm tra file <b>page-${pad}.webp</b> ở cùng cấp với index.html hoặc trong thư mục <b>preview-pages</b>.`;
-    }
+    if (ph) ph.innerHTML = 'Không tải được trang ' + pageNum + '.<br>Kiểm tra file <b>page-' + pad + '.webp</b> ở thư mục <b>preview-pages</b>.';
   };
 
+  // Append to DOM FIRST, then set src — ensures proper render dimensions
+  wrap.appendChild(img);
   img.src = candidates[0];
 }
 
@@ -1851,10 +1864,10 @@ function buildInlinePreview() {
 })();
 
 function openPreview() {
-  buildPreviewPages();
   document.getElementById('previewOverlay').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
   document.getElementById('previewScroll').scrollTop = 0;
+  requestAnimationFrame(() => buildPreviewPages());
 }
 
 function closePreview() {
