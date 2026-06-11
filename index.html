@@ -809,9 +809,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="big-title">Ecom Truyền Kỳ<br><em>— Lê Anh Tuấn</em></h2>
         <p class="sec-sub">Ecom Truyền Kỳ giúp người làm Ecom nhìn toàn cảnh cuộc chơi.<br><br>Không phải giáo trình. Không phải khóa học. Đây là cách nhìn có hệ thống về một cuộc chơi thay đổi liên tục — nơi kỹ thuật có thể lỗi thời rất nhanh, nhưng pattern thì thường lặp lại.</p>
       </div>
-      <div class="book-event-wrap" aria-label="Ảnh sự kiện ra mắt sách Ecom Truyền Kỳ">
-        <div class="book-event-card">
-          <img src="assets/images/book-stack-real.jpg" alt="Sách Ecom Truyền Kỳ bản in" class="book-event-img" loading="lazy">
+      <div class="book-event-wrap" aria-label="Ảnh sách Ecom Truyền Kỳ">
+        <div style="display:flex;flex-direction:column;gap:16px;width:min(100%,520px)">
+          <div class="book-event-card">
+            <img src="assets/images/book-stack-real.jpg" alt="Sách Ecom Truyền Kỳ bản in" class="book-event-img" loading="lazy">
+          </div>
+          <div class="book-event-card">
+            <img src="assets/images/book-cover-detail.jpg" alt="Chi tiết bìa sách Ecom Truyền Kỳ" class="book-event-img" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
@@ -986,45 +991,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Event photo -->
       <div style="display:flex;justify-content:center">
-        <img src="assets/images/author-event-talk.jpg"
+        <img src="assets/images/author-event-talk.png"
              alt="Lê Anh Tuấn chia sẻ tại sự kiện ra mắt sách Ecom Truyền Kỳ"
              style="width:min(100%,380px);border-radius:20px;display:block;box-shadow:0 24px 56px rgba(44,26,14,.14);object-fit:cover"
              loading="lazy">
       </div>
 
-      <!-- Copy + Video -->
+      <!-- Bio only in right column, video feature below full-width -->
       <div>
         <span class="sec-label">Về Tác Giả</span>
         <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:var(--brown);letter-spacing:-1px;line-height:1.1;margin-bottom:16px">Lê Anh Tuấn</h2>
-        <p style="font-size:clamp(15px,1.7vw,18px);color:var(--brown2);line-height:1.85;margin-bottom:36px">Lê Anh Tuấn là người gắn bó lâu năm với online marketing, startup và Ecom Việt Nam. Ecom Truyền Kỳ là cách anh chọn để kể lại 25 năm đó — để người đi sau không phải trả học phí bằng tiền thật cho những bài học đã có sẵn.</p>
-
-        <!-- Author video feature — 3 column layout -->
-        <div class="author-video-feature">
-          <div class="author-video-side author-video-left">
-            <span class="video-kicker">Video tác giả</span>
-            <h3>Câu chuyện phía sau Ecom Truyền Kỳ</h3>
-            <p>Một cuốn sách không nên chỉ nói "nên làm gì". Nó nên giúp người làm Ecom hiểu vì sao cuộc chơi đã thay đổi — và mình đang đứng ở đâu trong đó.</p>
-          </div>
-          <div class="author-video-main">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/TfFeIF-frFE?rel=0&modestbranding=1&iv_load_policy=3"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-              title="Câu chuyện phía sau Ecom Truyền Kỳ — Lê Anh Tuấn"
-            ></iframe>
-          </div>
-          <div class="author-video-side author-video-right">
-            <span class="video-kicker">Trong video này</span>
-            <ul>
-              <li>Vì sao tác giả viết Ecom Truyền Kỳ</li>
-              <li>Vì sao sách không đi theo kiểu công thức kiếm tiền nhanh</li>
-              <li>Người làm Ecom nên đọc cuốn này với tâm thế nào</li>
-            </ul>
-            <a href="#preview">Đọc thử 30 trang →</a>
-          </div>
-        </div>
+        <p style="font-size:clamp(15px,1.7vw,18px);color:var(--brown2);line-height:1.85">Lê Anh Tuấn là người gắn bó lâu năm với online marketing, startup và Ecom Việt Nam. Ecom Truyền Kỳ là cách anh chọn để kể lại 25 năm đó — để người đi sau không phải trả học phí bằng tiền thật cho những bài học đã có sẵn.</p>
       </div>
+
+    </div>
+
+    <!-- Author video feature — full width, outside 2-col grid -->
+    <div class="author-video-feature fade-in">
+      <div class="author-video-side author-video-left">
+        <span class="video-kicker">Video tác giả</span>
+        <h3>Câu chuyện phía sau Ecom Truyền Kỳ</h3>
+        <p>Một cuốn sách không nên chỉ nói "nên làm gì". Nó nên giúp người làm Ecom hiểu vì sao cuộc chơi đã thay đổi — và mình đang đứng ở đâu trong đó.</p>
+      </div>
+      <div class="author-video-main">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/TfFeIF-frFE?rel=0&modestbranding=1&iv_load_policy=3"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+          title="Câu chuyện phía sau Ecom Truyền Kỳ — Lê Anh Tuấn"
+        ></iframe>
+      </div>
+      <div class="author-video-side author-video-right">
+        <span class="video-kicker">Trong video này</span>
+        <ul>
+          <li>Vì sao tác giả viết Ecom Truyền Kỳ</li>
+          <li>Vì sao sách không đi theo kiểu công thức kiếm tiền nhanh</li>
+          <li>Người làm Ecom nên đọc cuốn này với tâm thế nào</li>
+        </ul>
+        <a href="#preview">Đọc thử 30 trang →</a>
+      </div>
+    </div>
 
     </div>
   </div>
