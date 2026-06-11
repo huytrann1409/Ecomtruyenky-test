@@ -540,6 +540,66 @@ button.btn-pri{
 .stat-title{color:var(--brown)}
 .stat-desc{color:var(--muted)}
 .stats-footnote{color:var(--muted)}
+/* === INLINE PREVIEW READER === */
+.preview-reader-wrap{max-width:760px;margin:40px auto 0}
+.preview-reader-container{position:relative}
+.preview-reader-frame{
+  height:min(660px,70vh);
+  overflow-y:auto;
+  border-radius:20px;
+  background:#fff;
+  border:1.5px solid rgba(232,82,10,.14);
+  box-shadow:0 18px 44px rgba(44,26,14,.08);
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-y;
+  scroll-behavior:smooth;
+}
+.preview-reader-frame .preview-page-wrap{
+  margin:0 auto 10px;
+  max-width:680px;
+}
+.preview-reader-frame .preview-end-cta{
+  margin:10px auto 0;
+  max-width:680px;
+}
+.preview-reader-fade{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:90px;
+  background:linear-gradient(to bottom,transparent,rgba(255,255,255,.97));
+  pointer-events:none;
+  border-radius:0 0 20px 20px;
+  transition:opacity .5s;
+}
+.preview-scroll-hint{
+  position:absolute;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--border);
+  padding:5px 14px;
+  border-radius:20px;
+  font-size:12px;
+  color:var(--muted);
+  pointer-events:none;
+  transition:opacity .5s;
+  white-space:nowrap;
+  z-index:2;
+}
+.preview-reader-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px;
+  flex-wrap:wrap;
+  gap:8px;
+}
+@media(max-width:600px){
+  .preview-reader-frame{height:min(480px,68vh);border-radius:16px}
+  .preview-reader-fade{border-radius:0 0 16px 16px}
+}
 
 </style>
 </head>
@@ -558,10 +618,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav id="navbar">
   <div class="nav-logo">ECOM <span>TRUYỀN KỲ</span></div>
   <ul class="nav-menu">
-    <li><a href="#toc">Nội dung sách</a></li>
     <li><a href="#audience">Phù hợp với ai</a></li>
+    <li><a href="#toc">Nội dung sách</a></li>
+    <li><a href="#author">Tác giả</a></li>
     <li><a href="#preview">Đọc thử</a></li>
-    <li><a href="#faq">FAQ</a></li>
     <li><a href="#pricing">Đặt sách</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:12px">
@@ -572,10 +632,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#toc" onclick="closeMenu()">Nội dung sách</a>
   <a href="#audience" onclick="closeMenu()">Phù hợp với ai</a>
+  <a href="#toc" onclick="closeMenu()">Nội dung sách</a>
+  <a href="#author" onclick="closeMenu()">Tác giả</a>
   <a href="#preview" onclick="closeMenu()">Đọc thử</a>
-  <a href="#faq" onclick="closeMenu()">FAQ</a>
   <a href="#pricing" onclick="closeMenu()" style="color:var(--or);font-weight:800">ĐẶT SÁCH →</a>
 </div>
 
@@ -649,8 +709,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p style="color:rgba(255,248,240,.7)">Dù bạn đang bán hàng, chạy ads, mới bước vào Ecom hay từng chững lại —</p>
     <p style="color:#FFF8F0"><strong>cuối cùng vẫn có một câu hỏi phải nhìn thẳng: Sau tất cả chi phí, còn lại bao nhiêu tiền thật?</strong></p>
   </div>
-</div>
-
 </div>
 
 <!-- STATS -->
@@ -875,7 +933,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Event photo -->
       <div style="display:flex;justify-content:center">
         <img src="event-photo.png"
-             alt=""
+             alt="Lê Anh Tuấn — tác giả Ecom Truyền Kỳ"
              style="width:min(100%,380px);border-radius:20px;display:block;box-shadow:0 24px 56px rgba(44,26,14,.14);object-fit:cover"
              loading="lazy">
       </div>
@@ -884,7 +942,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <span class="sec-label">Về Tác Giả</span>
         <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:900;color:var(--brown);letter-spacing:-1px;line-height:1.1;margin-bottom:16px">Lê Anh Tuấn</h2>
-        <p style="font-size:clamp(15px,1.7vw,18px);color:var(--brown2);line-height:1.85;margin-bottom:36px">Người gắn bó với Ecom Việt Nam từ những ngày đầu internet. Ecom Truyền Kỳ là cách anh chọn để kể lại 25 năm đó — để người đi sau không phải trả học phí bằng tiền thật cho những bài học đã có sẵn.</p>
+        <p style="font-size:clamp(15px,1.7vw,18px);color:var(--brown2);line-height:1.85;margin-bottom:36px">Lê Anh Tuấn là người gắn bó lâu năm với online marketing, startup và Ecom Việt Nam. Ecom Truyền Kỳ là cách anh chọn để kể lại 25 năm đó — để người đi sau không phải trả học phí bằng tiền thật cho những bài học đã có sẵn.</p>
 
         <!-- 9:16 video player — centered, max 340px -->
         <div style="max-width:340px">
@@ -955,10 +1013,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="fade-in" style="text-align:center">
       <span class="sec-label" style="display:block;text-align:center">Đọc Thử</span>
       <h2 class="big-title" style="font-size:clamp(32px,4.5vw,56px)">Đọc thử 30 trang</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Bắt đầu từ phần “Bán hàng trên sàn Ecom còn có lãi không?” — đoạn đi thẳng vào câu hỏi quen thuộc của người làm Ecom: bán được rồi, nhưng cuối cùng còn lại bao nhiêu?</p>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Bắt đầu từ phần "Bán hàng trên sàn Ecom còn có lãi không?" — đoạn đi thẳng vào câu hỏi quen thuộc của người làm Ecom: bán được rồi, nhưng cuối cùng còn lại bao nhiêu?</p>
     </div>
-    <div class="preview-cta-wrap fade-in">
-      <button onclick="openPreview()" class="btn-pri" style="font-size:16px;padding:16px 36px;cursor:pointer;border:none">Đọc thử ngay trên trang</button>
+
+    <div class="preview-reader-wrap fade-in">
+      <div class="preview-reader-container">
+        <div class="preview-reader-frame" id="inlinePreviewFrame">
+          <div id="inlinePreviewPages">
+            <!-- Pages rendered by JS when section enters viewport -->
+          </div>
+        </div>
+        <div class="preview-reader-fade" id="previewReaderFade"></div>
+        <div class="preview-scroll-hint" id="previewScrollHint">Cuộn để đọc tiếp ↓</div>
+      </div>
+      <div class="preview-reader-footer">
+        <button onclick="openPreview()" style="background:none;border:none;cursor:pointer;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;padding:0">
+          <span style="font-size:15px">⛶</span> Đọc toàn màn hình
+        </button>
+        <a href="doc_thu_30_trang_chuong3.pdf" target="_blank" rel="noopener" style="font-size:12px;color:var(--muted);text-decoration:none">
+          Bạn cũng có thể <span style="color:var(--or)">đọc thử qua PDF →</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -982,7 +1057,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Đọc trên mọi thiết bị</li>
           <li>Nhận ngay qua email</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('ebook')">Đặt sách</button>
+        <button class="pbtn out" onclick="selectProduct('ebook')">Chọn Ebook</button>
       </div>
       <div class="price-card feat" style="position:relative;overflow:visible">
         <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--or);color:#FFF8F0;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 18px;border-radius:20px;white-space:nowrap;text-transform:uppercase">Đọc ngay + giữ bản giấy</div>
@@ -996,7 +1071,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Có sách in để đọc chậm, ghi chú và đọc lại</li>
           <li>Tiết kiệm 128.000đ so với mua lẻ</li>
         </ul>
-        <button class="pbtn main" onclick="selectProduct('combo')">Đặt sách</button>
+        <button class="pbtn main" onclick="selectProduct('combo')">Chọn Combo</button>
       </div>
       <div class="price-card">
         <span class="price-type">Sách In</span>
@@ -1007,7 +1082,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Sách in bản đầy đủ</li>
           <li>Giao hàng toàn quốc</li>
         </ul>
-        <button class="pbtn out" onclick="selectProduct('sach')">Đặt sách</button>
+        <button class="pbtn out" onclick="selectProduct('sach')">Chọn Sách in</button>
       </div>
     </div>
     <div class="price-microcopy fade-in">
@@ -1238,7 +1313,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="confirm-msg">Nếu bạn đã chuyển khoản, hệ thống vẫn tự động xác nhận và gửi email trong vài phút. Bạn không cần giữ trang này mở.</div>
     <div class="confirm-actions">
       <button class="confirm-btn-cancel" onclick="doCloseQR()">Tôi chưa chuyển — Đóng QR</button>
-      <button class="confirm-btn-ok" onclick="closeConfirm()">Tôi đã chuyển khoản rồi — Ở lại chờ</button>
+      <button class="confirm-btn-ok" onclick="doCloseQRAndGoHome()">Tôi đã chuyển khoản rồi — Quay lại trang chính</button>
     </div>
   </div>
 </div>
@@ -1600,14 +1675,15 @@ const PREVIEW_CACHE_BUST = 'v6-20260609';
 function previewCandidates(pad) {
   const v = PREVIEW_CACHE_BUST;
   return [
-    `page-${pad}.webp?v=${v}`,
-    `./page-${pad}.webp?v=${v}`,
     `preview-pages/page-${pad}.webp?v=${v}`,
     `./preview-pages/page-${pad}.webp?v=${v}`,
-    `page-${pad}.jpg?v=${v}`,
     `preview-pages/page-${pad}.jpg?v=${v}`,
-    `page-${pad}.png?v=${v}`,
-    `preview-pages/page-${pad}.png?v=${v}`
+    `./preview-pages/page-${pad}.jpg?v=${v}`,
+    `preview-pages/page-${pad}.png?v=${v}`,
+    `./preview-pages/page-${pad}.png?v=${v}`,
+    `page-${pad}.webp?v=${v}`,
+    `page-${pad}.jpg?v=${v}`,
+    `page-${pad}.png?v=${v}`
   ];
 }
 
@@ -1686,8 +1762,85 @@ function buildPreviewPages() {
     });
   }, { rootMargin: '600px 0px' });
 
-  document.querySelectorAll('.preview-page-wrap').forEach(w => pageObs.observe(w));
+  document.querySelectorAll('#previewScroll .preview-page-wrap').forEach(w => pageObs.observe(w));
 }
+
+// ── Inline preview reader ─────────────────────────────────
+let inlineBuilt = false;
+
+function buildInlinePreview() {
+  if (inlineBuilt) return;
+  inlineBuilt = true;
+
+  const container = document.getElementById('inlinePreviewPages');
+  const frame     = document.getElementById('inlinePreviewFrame');
+  const hint      = document.getElementById('previewScrollHint');
+  if (!container || !frame) return;
+
+  // Build 30 page wrappers
+  for (let i = 1; i <= 30; i++) {
+    const pad = String(i).padStart(2, '0');
+    const wrap = document.createElement('div');
+    wrap.className = 'preview-page-wrap';
+    wrap.dataset.page = pad;
+    const ph = document.createElement('div');
+    ph.className = 'preview-page-placeholder';
+    ph.textContent = 'Đang tải trang ' + i + '...';
+    wrap.appendChild(ph);
+    container.appendChild(wrap);
+  }
+
+  // CTA at end of inline reader
+  const inlineCta = document.createElement('div');
+  inlineCta.className = 'preview-end-cta';
+  inlineCta.innerHTML = '<p style="font-size:13px;opacity:.7;margin-bottom:12px">Bạn đã xem hết 30 trang thử.</p><h3>Muốn đọc tiếp toàn bộ cuốn sách?</h3><p>Ecom Truyền Kỳ giúp bạn nhìn toàn cảnh cuộc chơi Ecom — để biết mình đang ở đâu, nên ưu tiên điều gì và chuẩn bị thế nào cho giai đoạn tới.</p><a href="#pricing" class="preview-end-btn" onclick="void(0)">Đặt sách tại ecomtruyenky.com →</a>';
+  container.appendChild(inlineCta);
+
+  // Eager load pages 1–3 immediately
+  for (let i = 1; i <= 3; i++) {
+    const pad = String(i).padStart(2, '0');
+    const wrap = container.querySelector('[data-page="' + pad + '"]');
+    if (wrap) { wrap.dataset.loaded = '1'; loadPreviewImageInto(wrap, pad); }
+  }
+
+  // Lazy-load pages 4–30 with frame as IntersectionObserver root
+  const inlineObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const w = entry.target;
+        if (!w.dataset.loaded) {
+          w.dataset.loaded = '1';
+          loadPreviewImageInto(w, w.dataset.page);
+          inlineObs.unobserve(w);
+        }
+      }
+    });
+  }, { root: frame, rootMargin: '300px 0px' });
+
+  container.querySelectorAll('.preview-page-wrap').forEach(function(w, idx) {
+    if (idx >= 3) inlineObs.observe(w);
+  });
+
+  // Auto-hide scroll hint + fade after first scroll
+  frame.addEventListener('scroll', function() {
+    const fade = document.getElementById('previewReaderFade');
+    if (hint) hint.style.opacity = '0';
+    if (fade) fade.style.opacity = '0';
+  }, { once: true });
+}
+
+// Trigger inline preview when section enters viewport
+(function() {
+  const sec = document.getElementById('preview');
+  if (!sec) return;
+  const secObs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      buildInlinePreview();
+      secObs.disconnect();
+    }
+  }, { rootMargin: '400px 0px' });
+  secObs.observe(sec);
+})();
 
 function openPreview() {
   buildPreviewPages();
