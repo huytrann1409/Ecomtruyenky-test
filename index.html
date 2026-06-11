@@ -128,6 +128,14 @@ section{padding:110px 48px}
   box-shadow:0 30px 60px -12px rgba(44,26,14,.28);
   object-fit:cover;
 }
+/* === HERO CAROUSEL === */
+.hero-carousel{width:min(100%,560px);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -12px rgba(44,26,14,.28);position:relative;user-select:none;-webkit-user-select:none}
+.hero-carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
+.hero-carousel-slide{min-width:100%;width:100%;display:block;object-fit:cover;aspect-ratio:4/3;pointer-events:none}
+.hero-carousel-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+.hero-carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);cursor:pointer;transition:all .3s;border:none;padding:0;flex-shrink:0}
+.hero-carousel-dot.active{background:#fff;width:18px;border-radius:3px}
+@media(max-width:900px){.hero-carousel{width:100%;border-radius:16px}}
 .book-scene{position:relative;width:340px;height:400px;display:flex;align-items:center;justify-content:center}
 .book3d{width:220px;height:308px;position:relative;animation:bkFloat 5s ease-in-out infinite}
 @keyframes bkFloat{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-5deg) translateY(-16px)}}
@@ -717,7 +725,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="hero-right fade-in">
-      <img src="assets/images/book-cover-detail.jpg" alt="Sách Ecom Truyền Kỳ bản in" class="hero-book-photo" loading="eager">
+      <div class="hero-carousel">
+        <div class="hero-carousel-track" id="heroCarouselTrack">
+          <img src="assets/images/hero-book-01.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="eager">
+          <img src="assets/images/hero-book-02.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+          <img src="assets/images/hero-book-03.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+          <img src="assets/images/hero-book-04.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+          <img src="assets/images/hero-book-05.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+          <img src="assets/images/hero-book-06.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+          <img src="assets/images/hero-book-07.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+          <img src="assets/images/hero-book-08.jpg" alt="Sách Ecom Truyền Kỳ" class="hero-carousel-slide" loading="lazy">
+        </div>
+        <div class="hero-carousel-dots" id="heroCarouselDots"></div>
+      </div>
     </div>
   </div>
 
@@ -1989,7 +2009,64 @@ function closePreview() {
   }
 })();
 
-// ── Close preview on ESC ──────────────────────────────────
+// ── Hero carousel ─────────────────────────────────────────
+(function(){
+  const track = document.getElementById('heroCarouselTrack');
+  const dotsEl = document.getElementById('heroCarouselDots');
+  if (!track || !dotsEl) return;
+
+  const slides = track.querySelectorAll('.hero-carousel-slide');
+  const total = slides.length;
+  let current = 0;
+  let timer;
+  let paused = false;
+  let touchStartX = 0;
+
+  // Build dots
+  slides.forEach(function(_, i) {
+    const dot = document.createElement('button');
+    dot.className = 'hero-carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Ảnh ' + (i + 1));
+    dot.addEventListener('click', function(){ goTo(i); resetTimer(); });
+    dotsEl.appendChild(dot);
+  });
+
+  function goTo(n) {
+    current = ((n % total) + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsEl.querySelectorAll('.hero-carousel-dot').forEach(function(d, i){
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function next() { goTo(current + 1); }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function(){ if (!paused) next(); }, 3500);
+  }
+
+  // Pause on hover (desktop)
+  const carousel = track.closest('.hero-carousel');
+  carousel.addEventListener('mouseenter', function(){ paused = true; });
+  carousel.addEventListener('mouseleave', function(){ paused = false; });
+
+  // Swipe (mobile)
+  carousel.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  carousel.addEventListener('touchend', function(e){
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      diff > 0 ? next() : goTo(current - 1);
+      resetTimer();
+    }
+  }, { passive: true });
+
+  resetTimer();
+})();
+
+
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     if (!document.getElementById('previewOverlay').classList.contains('hidden')) closePreview();
