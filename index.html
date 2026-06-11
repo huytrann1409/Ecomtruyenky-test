@@ -540,6 +540,22 @@ button.btn-pri{
 .stat-title{color:var(--brown)}
 .stat-desc{color:var(--muted)}
 .stats-footnote{color:var(--muted)}
+/* === EVENT PROOF SECTION === */
+.event-proof-sec{background:#FFF8F0;padding:80px 48px}
+.event-proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1020px;margin:0 auto}
+.event-proof-card{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(44,26,14,.07)}
+.event-proof-card img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
+.event-proof-caption{font-size:13px;color:var(--muted);padding:12px 16px;margin:0;line-height:1.5}
+@media(max-width:640px){
+  .event-proof-sec{padding:64px 0}
+  .event-proof-grid{display:flex;flex-direction:row;overflow-x:auto;gap:16px;padding:0 24px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .event-proof-card{flex:0 0 80vw;max-width:300px;scroll-snap-align:start}
+}
+/* === REAL BOOK PROOF (Pricing) === */
+.real-book-proof{max-width:760px;margin:40px auto;border-radius:20px;overflow:hidden;box-shadow:0 12px 32px rgba(44,26,14,.08);border:1.5px solid var(--border)}
+.real-book-proof img{width:100%;display:block;object-fit:cover;max-height:420px}
+.real-book-proof-copy{font-size:14px;color:var(--brown2);line-height:1.8;padding:20px 24px;margin:0;background:#fff}
+
 /* === MODAL preview page wraps === */
 #previewScroll .preview-page-wrap{
   display:block;
@@ -769,8 +785,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="book-event-wrap" aria-label="Ảnh sự kiện ra mắt sách Ecom Truyền Kỳ">
         <div class="book-event-card">
-          <!-- Upload event photo with exact filename: event-photo.png -->
-          <img src="event-photo.png" alt="Ảnh sự kiện ra mắt sách Ecom Truyền Kỳ" class="book-event-img" loading="lazy">
+          <img src="assets/images/book-stack-real.jpg" alt="Sách Ecom Truyền Kỳ bản in" class="book-event-img" loading="lazy">
         </div>
       </div>
     </div>
@@ -945,8 +960,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Event photo -->
       <div style="display:flex;justify-content:center">
-        <img src="event-photo.png"
-             alt="Lê Anh Tuấn — tác giả Ecom Truyền Kỳ"
+        <img src="assets/images/author-event-talk.jpg"
+             alt="Lê Anh Tuấn chia sẻ tại sự kiện ra mắt sách Ecom Truyền Kỳ"
              style="width:min(100%,380px);border-radius:20px;display:block;box-shadow:0 24px 56px rgba(44,26,14,.14);object-fit:cover"
              loading="lazy">
       </div>
@@ -972,6 +987,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- EVENT PROOF -->
+<section class="event-proof-sec" id="event-proof">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:40px">
+      <span class="sec-label" style="display:block;text-align:center">Khoảnh Khắc Thật</span>
+      <h2 style="font-size:clamp(24px,3vw,38px);font-weight:900;color:var(--brown);letter-spacing:-0.5px;line-height:1.2">Sách thật. Người thật.<br>Những cuộc trò chuyện thật.</h2>
+    </div>
+    <div class="event-proof-grid fade-in">
+      <div class="event-proof-card">
+        <img src="assets/images/event-group-books.jpg" alt="Buổi ra mắt sách Ecom Truyền Kỳ" loading="lazy">
+        <p class="event-proof-caption">Buổi ra mắt sách Ecom Truyền Kỳ.</p>
+      </div>
+      <div class="event-proof-card">
+        <img src="assets/images/event-signed-books.jpg" alt="Ký tặng sách tại sự kiện" loading="lazy">
+        <p class="event-proof-caption">Ký tặng sách tại sự kiện.</p>
+      </div>
+      <div class="event-proof-card">
+        <img src="assets/images/event-reader-book.jpg" alt="Sách thật trên tay người đọc" loading="lazy">
+        <p class="event-proof-caption">Sách thật trên tay người đọc.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1040,9 +1079,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="preview-scroll-hint" id="previewScrollHint">Cuộn để đọc tiếp ↓</div>
       </div>
       <div class="preview-reader-footer">
-        <button onclick="openPreview()" style="background:none;border:none;cursor:pointer;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;padding:0">
-          <span style="font-size:15px">⛶</span> Đọc toàn màn hình
-        </button>
         <a href="doc_thu_30_trang_chuong3.pdf" target="_blank" rel="noopener" style="font-size:12px;color:var(--muted);text-decoration:none">
           Bạn cũng có thể <span style="color:var(--or)">đọc thử qua PDF →</span>
         </a>
@@ -1058,6 +1094,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="sec-label" style="display:block;text-align:center">Chọn Loại Sách</span>
       <h2 class="big-title" style="font-size:clamp(32px,4vw,52px)">Chọn loại sách phù hợp</h2>
       <p class="sec-sub" style="margin:0 auto;text-align:center">Đọc ngay bằng Ebook, chọn sách in để đọc chậm và ghi chú, hoặc chọn Combo nếu bạn muốn có cả hai.</p>
+    </div>
+    <div class="real-book-proof fade-in">
+      <img src="assets/images/real-book-proof.jpg" alt="Sách Ecom Truyền Kỳ bản in thật" loading="lazy">
+      <p class="real-book-proof-copy">Sách in bản thật đã được hoàn thiện và dùng trong buổi ra mắt. Nếu bạn muốn đọc chậm, gạch ý và giữ lại trên bàn làm việc, bản sách in hoặc Combo sẽ hợp hơn Ebook đơn lẻ.</p>
     </div>
     <div class="price-grid fade-in">
       <div class="price-card">
