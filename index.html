@@ -1087,7 +1087,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="price-microcopy fade-in">
       Có mã ưu đãi? Nhập ở bước thanh toán.<br>
-      Muốn xem nội dung trước? <a href="#preview" onclick="openPreview();return false;" style="color:var(--or);font-weight:600">Bạn có thể đọc thử 30 trang.</a>
+      Muốn xem nội dung trước? <a href="#preview" style="color:var(--or);font-weight:600">Bạn có thể đọc thử 30 trang.</a>
     </div>
   </div>
 </section>
@@ -1246,7 +1246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="faq-answer">Ở bản hiện tại, trang ưu tiên thanh toán bằng mã QR chuyển khoản để hệ thống tự động xác nhận đơn. Nếu cần hỗ trợ kiểm tra đơn, bạn có thể vào nhóm Zalo hỗ trợ được đặt ở cuối form.</div>
       </details>
     </div>
-    <p class="faq-cta fade-in">Nếu vẫn còn phân vân, bạn có thể <a href="#preview" onclick="openPreview();return false;">đọc thử 30 trang</a> trước khi chọn loại sách.</p>
+    <p class="faq-cta fade-in">Nếu vẫn còn phân vân, bạn có thể <a href="#preview">đọc thử 30 trang</a> trước khi chọn loại sách.</p>
   </div>
 </section>
 
@@ -1746,7 +1746,14 @@ function buildPreviewPages() {
   `;
   scroll.appendChild(endCta);
 
-  // Lazy-load with IntersectionObserver. Fallback supports BOTH root files and /preview-pages folder.
+  // Eager load pages 1–5 immediately (không phụ thuộc vào observer)
+  for (let i = 1; i <= 5; i++) {
+    const pad = String(i).padStart(2, '0');
+    const wrap = scroll.querySelector('[data-page="' + pad + '"]');
+    if (wrap) { wrap.dataset.loaded = '1'; loadPreviewImageInto(wrap, pad); }
+  }
+
+  // Lazy-load pages 6–30 với scroll container làm root
   const pageObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1759,9 +1766,11 @@ function buildPreviewPages() {
         }
       }
     });
-  }, { rootMargin: '600px 0px' });
+  }, { root: scroll, rootMargin: '600px 0px' });
 
-  document.querySelectorAll('#previewScroll .preview-page-wrap').forEach(w => pageObs.observe(w));
+  scroll.querySelectorAll('.preview-page-wrap').forEach((w, idx) => {
+    if (idx >= 5) pageObs.observe(w);
+  });
 }
 
 // ── Inline preview reader ─────────────────────────────────
